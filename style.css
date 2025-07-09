@@ -514,6 +514,7 @@ footer {
 
     .nav-links {
         position: fixed;
+        text-align: center;
         right: 0px;
         height: 100vh; /* Full height */
         top: 0;
