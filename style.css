@@ -30,6 +30,9 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 a {
@@ -51,7 +54,7 @@ h1, h2, h3, h4 {
 header {
     background: var(--light-text-color);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
+    position: sticky; /* Changed to sticky */
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -61,7 +64,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: 0.5rem 5%;
     min-height: 8vh;
 }
 
@@ -70,6 +73,13 @@ nav {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-text {
+    display: block;
 }
 
 .logo-accent {
@@ -129,7 +139,6 @@ nav {
     border-color: var(--primary-color);
 }
 
-
 /* --- Burger Menu for Mobile --- */
 .burger {
     display: none;
@@ -144,25 +153,9 @@ nav {
     transition: all 0.3s ease;
 }
 
-/* --- Page Sections --- */
+/* --- Page & Content Styles --- */
 main {
-    padding-top: 8vh; /* Match nav height */
-}
-
-.page {
-    display: none;
-    min-height: 92vh;
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-}
-
-.page.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    flex-grow: 1; /* Ensures main content takes up available space */
 }
 
 .page-container {
@@ -172,16 +165,16 @@ main {
 }
 
 .page-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     text-align: center;
     margin-bottom: 1rem;
 }
 
 .page-intro {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto 3rem auto;
+    max-width: 750px;
+    margin: 0 auto 4rem auto;
     color: #555;
 }
 
@@ -193,6 +186,7 @@ main {
     text-align: center;
     background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://images.unsplash.com/photo-1581092921462-6839046561ea?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
     color: var(--light-text-color);
+    min-height: calc(100vh - 8vh - 84px); /* Full viewport height minus header and footer */
 }
 
 .hero-content {
@@ -229,43 +223,146 @@ main {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* --- Services Section --- */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* --- Services Page Specific Styles --- */
+.service-detail-card {
+    display: flex;
+    align-items: flex-start;
     gap: 2rem;
-}
-
-.service-card {
     background: var(--light-text-color);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: all 0.3s ease;
+    margin-bottom: 2rem;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+.service-detail-icon svg {
+    color: var(--secondary-color);
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    margin-top: 0.5rem;
 }
 
-.service-icon {
+.service-detail-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-why {
+    font-style: italic;
+    color: #555;
     margin-bottom: 1.5rem;
 }
 
-.service-icon svg {
-    color: var(--secondary-color);
-    width: 48px;
-    height: 48px;
+.service-breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
-.service-card h3 {
+.service-breakdown h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid var(--light-gray);
+    padding-bottom: 0.5rem;
+}
+
+.service-breakdown ul {
+    padding-left: 1.25rem;
+}
+
+.service-breakdown li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.service-breakdown li::before {
+    content: '✓';
+    color: var(--accent-color);
+    font-weight: bold;
+    position: absolute;
+    left: -1.25rem;
+}
+
+/* --- Our Approach Section --- */
+.our-approach-section {
+    margin-top: 5rem;
+    padding: 4rem 0;
+    background-color: var(--light-text-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.approach-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.approach-card {
+    text-align: center;
+}
+
+.approach-card h3 {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    font-size: 1.4rem;
 }
 
-/* --- About Us Section --- */
+/* --- CTA Section --- */
+.cta-section {
+    margin-top: 5rem;
+    text-align: center;
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 4rem 2rem;
+    border-radius: 12px;
+}
+
+.cta-section h2 {
+    color: var(--light-text-color);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+
+/* --- About Us Page Specific Styles --- */
+.about-section {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.about-image {
+    width: 45%;
+    border-radius: 12px;
+    object-fit: cover;
+    height: 400px;
+}
+
+.about-text {
+    width: 55%;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
 .about-content {
     display: flex;
     gap: 3rem;
@@ -302,8 +399,8 @@ main {
     margin-bottom: 1rem;
 }
 
-/* --- Contact Section --- */
-.contact-container {
+/* --- Contact Page Specific Styles --- */
+.contact-page-container {
     display: flex;
     gap: 3rem;
     background: var(--light-text-color);
@@ -318,8 +415,18 @@ main {
 
 .contact-details {
     flex: 1;
-    border-left: 1px solid var(--light-gray);
-    padding-left: 2rem;
+}
+
+.contact-details p {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.contact-details svg {
+    color: var(--secondary-color);
+    flex-shrink: 0;
 }
 
 .form-group {
@@ -359,6 +466,7 @@ main {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .submit-button:hover {
@@ -366,10 +474,6 @@ main {
 }
 
 .contact-details h3 {
-    margin-bottom: 1rem;
-}
-
-.contact-details p {
     margin-bottom: 1rem;
 }
 
@@ -383,6 +487,7 @@ footer {
     color: var(--light-text-color);
     text-align: center;
     padding: 2rem;
+    flex-shrink: 0; /* Prevents footer from shrinking */
 }
 
 /* --- Responsive Design --- */
@@ -392,6 +497,12 @@ footer {
     }
     .language-switcher {
         margin-right: 1rem;
+    }
+    .about-section {
+        flex-direction: column;
+    }
+    .about-image, .about-text {
+        width: 100%;
     }
 }
 
@@ -404,17 +515,17 @@ footer {
     .nav-links {
         position: fixed;
         right: 0px;
-        height: 92vh;
-        top: 8vh;
+        height: 100vh; /* Full height */
+        top: 0;
         background-color: var(--light-text-color);
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 60%;
+        width: 70%;
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        padding-top: 2rem;
+        padding-top: 5rem;
         gap: 0;
     }
 
@@ -431,12 +542,16 @@ footer {
 
     .burger {
         display: block;
-        z-index: 10; /* Ensure burger is clickable */
+        z-index: 1001; /* Ensure burger is above everything */
     }
 
     .language-switcher {
         position: absolute;
-        right: 80px; /* Position it next to the burger */
+        right: 80px;
+    }
+    
+    .logo-text {
+        display: none;
     }
 
     .nav-active {
@@ -444,14 +559,8 @@ footer {
     }
 
     @keyframes navLinkFade {
-        from {
-            opacity: 0;
-            transform: translateX(50px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0px);
-        }
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0px); }
     }
     
     .toggle .line1 {
@@ -467,14 +576,19 @@ footer {
     .hero-headline {
         font-size: 2.5rem;
     }
-
-    .contact-container {
+    
+    .service-detail-card {
         flex-direction: column;
+        text-align: center;
+        align-items: center;
     }
-    .contact-details {
-        border-left: none;
-        padding-left: 0;
-        border-top: 1px solid var(--light-gray);
-        padding-top: 2rem;
+
+    .service-breakdown {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .contact-page-container {
+        flex-direction: column;
     }
 }

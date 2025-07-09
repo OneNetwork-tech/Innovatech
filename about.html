@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="aboutPageTitle">About Us - Innovatech Systems</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 20V18M12 6V4M20 12H18M6 12H4M17.6569 17.6569L16.2426 16.2426M7.75736 7.75736L6.34315 6.34315M17.6569 6.34315L16.2426 7.75736M7.75736 16.2426L6.34315 17.6569" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="#4A90E2" stroke-width="2"/>
+                    </svg>
+                    <span class="logo-text">Innovatech<span class="logo-accent">Systems</span></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-lang="navHome">Home</a></li>
+                <li><a href="services.html" data-lang="navServices">Services</a></li>
+                <li><a href="about.html" class="active" data-lang="navAbout">About Us</a></li>
+                <li><a href="contact.html" data-lang="navContact">Contact</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang-set="en">EN</button>
+                <button class="lang-btn" data-lang-set="sv">SV</button>
+                <button class="lang-btn" data-lang-set="fr">FR</button>
+                <button class="lang-btn" data-lang-set="es">ES</button>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <div class="page-container">
+            <h1 class="page-title" data-lang="aboutTitle">About Innovatech Systems</h1>
+            <p class="page-intro" data-lang="aboutIntro">We are a partnership of engineering and software expertise, dedicated to making advanced technology accessible for Swedish SMEs.</p>
+
+            <div class="about-section">
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop" alt="Team collaborating" class="about-image">
+                <div class="about-text">
+                    <h2 data-lang="ourMissionTitle">Our Mission</h2>
+                    <p data-lang="ourMissionText">Our mission is to empower Sweden's small and medium-sized enterprises by demystifying industrial automation. We believe that smart, scalable technology is the key to competitiveness and sustainable growth. We act as your dedicated technology partner, translating complex challenges into practical, high-return solutions that drive real-world results.</p>
+                    <h2 data-lang="ourStoryTitle">Our Story</h2>
+                    <p data-lang="ourStoryText">Founded in Gothenburg by a passionate electrical engineer and a skilled programmer, Innovatech Systems was born from a shared observation: while large corporations were reaping the benefits of Industry 4.0, the SMEs forming the backbone of our economy were being left behind. We combine hands-on industrial experience with cutting-edge software development to bridge this gap, offering the sophisticated, integrated solutions of a large firm with the agility, focus, and personal commitment of a local partner.</p>
+                </div>
+            </div>
+
+            <h2 class="page-title" style="margin-top: 4rem;" data-lang="meetTheTeamTitle">Meet The Team</h2>
+            <div class="about-content">
+                <div class="team-member">
+                    <img src="https://placehold.co/150x150/003366/FFFFFF?text=EE" alt="Electrical Engineer Founder" class="team-photo">
+                    <h4 data-lang="aboutEEFounder">Electrical Engineer & Founder</h4>
+                    <p class="team-role" data-lang="aboutEEDesc">With a degree in Electrical Engineering and years of hands-on experience in industrial automation and IT, I bridge the gap between physical machinery and intelligent software. My focus is on designing robust, efficient systems that solve real-world problems.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://placehold.co/150x150/4A90E2/FFFFFF?text=DEV" alt="Programmer & Partner" class="team-photo">
+                    <h4 data-lang="aboutDevPartner">Programmer & Partner</h4>
+                    <p class="team-role" data-lang="aboutDevDesc">As a professional programmer, I build the software that brings our automation solutions to life. From custom dashboards and data analysis tools to seamless API integrations, I ensure our systems are not just powerful, but also intuitive and user-friendly.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Innovatech Systems AB. <span data-lang="footerRights">All Rights Reserved.</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
